@@ -10,12 +10,12 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    @employee = Employee.new(employee_params)
+    employee = Employee.new(employee_params)
 
-    if @employee.save
-      render json: { status: "SUCCESS", message: "Saved employee", data: @employee }, status: :ok
+    if employee.save
+      render json: { status: "SUCCESS", message: "Saved employee", data: employee }, status: :ok
     else
-      render json: { status: "ERROR", message: "employee not saved", data: @employee.errors }, status: :unprocessable_entity
+      render json: { status: "ERROR", message: "employee not saved", data: employee.errors }, status: :unprocessable_entity
     end
   end
 
